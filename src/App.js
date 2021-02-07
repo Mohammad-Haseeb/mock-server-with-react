@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react"
 
-function App() {
+
+export default function App() {
+  
+  
+  useEffect(() => {
+   async function  Caller() {
+        let api=await fetch('api/books');
+        let data= await api.json();
+        console.log("data : ", data);
+    }
+    Caller();
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <h1>Hello</h1>
+  )
 }
-
-export default App;
