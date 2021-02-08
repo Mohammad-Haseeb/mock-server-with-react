@@ -7,10 +7,17 @@ export function makeServer() {
       this.namespace = "api"
 
       this.get("/books", () => {
-        return {
-            "name":"hello"
-        };
+        return  books
       })
+
+      this.post("/reminders", (schema, request) => {
+        let attrs = JSON.parse(request.requestBody)
+       books.push(attrs);
+        
+        
+        
+      })
+
     },
   })
 
